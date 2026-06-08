@@ -1,0 +1,231 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  header{
+      background-color:#3c0050;/*Branco com 0.95 = 95% de opacidade*/
+      padding: 1rem 5%;/*rem = 1.6px (tamanho padrão da fonte), 5% largura do container*/
+      display: flex;/*ativa o flexbox para layout flexivel*/
+      align-items: center;/*alinha os itens verticalmente ao centro*/
+      align-self: normal;/*alinha o header de acordo com o fluxo normal do documento*/
+      justify-content: space-between;/*espaço entre os itens(logo de um lado e menu do outro)*/
+      flex-wrap: wrap;/*permite quebra de linhas em telas pequenas*/
+      gap: 2rem;/*espaçamento entre os itens flexiveis*/
+      box-shadow: 0 2px 20px rgba(14, 9, 9, 0.5);/*sombra: eixo x eixo y desfoque na cor*/
+      position: sticky;/*grudar no topo ao rolar a pagina*/
+      top:0;/*distancia do topo ao grudar*/
+      z-index: 1000;/*garante que fique acima dos outros elementos*/
+  }
+  
+  body{
+      /*Fontes: Segoe UI é a primeira opção se não tiver, vai tentando as próximas*/
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6; /*altura entre as linhas 1.6x o tamanho da fonte*/
+      line-gap-override: 1.6; /*garante que o espaçamento entre as linhas seja consistente mesmo com fontes diferentes*/
+      line-break: 1.6; /*garante que o espaçamento entre as linhas seja consistente mesmo com fontes diferentes*/
+      color: #000000; /*cor do texto 'cinza escuro'*/ 
+      /*gradiente de fundo: 135deg é a direção, de roxo claro para roxo escuro*/
+      background: #280050;
+      min-height: 100vh; /*vh = viewport height. Mínimo de 100% da altura da tela*/
+  }
+  
+  /*===HEADER (CABEÇALHO)===*/
+  
+  header img{
+      height: 70px;/*fixando a altura da imagem em pixel*/
+      width: auto;/*ajusta a largura automaticamente de acordo com a altura (mantem proporcional a imagem)*   /
+      transition: transform 0.5s ease;/*transição suave de 3 segundos para animação*/
+  }
+  header img:hover{/*hover  = quando passa o mouse por cima faz alguma coisa*/
+      transform: scale(1.10);/*aumenta 5% do tamanho da imagem original*/
+      transform: all 0.5s ease;/*transição suave para todas as propriedades*/
+      color: #ffffff; /*cor do texto branco*/
+  }
+  nav a {
+    text-decoration: none; /*remove o sublinhado padrão dos links*/
+    color: #ffffff; /*defino uma cor do texto roxo*/
+    font-weight: 600; /*peso da fonte (semi negrito)*/
+    padding: 8px 16px; /*8px em cima/baixo e 16px nas laterais*/
+    border-radius: 25px; /*bordas arredondadas*/
+    transition: all 0.3s ease; /*transição suave para todas as propriedades*/
+    position: relative; /*necessário para o pseudo-elemento ::after*/
+  }
+  nav a:hover {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    transform: translateY(-2px); /*move 2 pixels para cima*/
+    box-shadow: 0 5px 15px rgba(24, 2, 46, 0.3); /*sombra roxa suave*/
+  }
+  nav a::after {
+    /*pseudo elemento para criar a linha animada abaixo dos links*/
+    content: ""; /*necessario para criar o elemento*/
+    position: absolute; /*posição em relação ao elemento*/
+    bottom: 0; /*cola na parte inferior*/
+    left: 50%; /*começa do meio*/
+    transform: translateX(-50%); /*centraliza horizontalmente*/
+    width: 0; /*começa com a largura 0*/
+    height: 2px; /*altura da linha*/
+    background-blend-mode: #000000; /*cor da linha roxa*/
+    transition: width 0.3s ease; /*anima apenas a largura*/
+  }
+  nav a:hover::after {
+    width: 80%; /*expande para 80% da largura do link*/
+    
+  }
+  
+  /*===PRINCIPAL===*/   
+  
+  main {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap; /*permite quebra de linha em telas menores*/
+    padding: 2rem; /*espaçamento interno de 32px em todos os lados*/
+  }
+  button a {
+    text-decoration: none; /*remove o sublinhado dos links*/
+    color: rgb(255, 255, 255); /*cor do texto branco*/
+    font-weight: 600; /*peso da fonte (semi negrito)*/
+    padding: 8px 16px; /*espaçamento interno do link*/
+    border-radius: 25px; /*bordas arredondadas*/
+    transition: all 0.3s ease; /*transição suave para todas as propriedades*/
+    background-color: transparent;
+    color: inherit;
+  }
+  div {
+      display: flex;
+      flex-direction: column; /*alinha os itens em coluna*/
+      align-items: center; /*alinha os itens ao centro horizontalmente*/
+      text-align: center; /*alinha o texto ao centro*/
+      padding: 20px; /*espaçamento interno de 20px*/
+      border-radius: 10px; /*borda arredondada para os cards*/
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /*sombra suave para os cards*/
+      height: 650px;
+      width: 400px;
+    max-width: 360px; /*largura maxima em pixels*/
+    max-height: 800px; /*altura fixa em pixels*/
+    margin: 7rem 0; /*7rem cima/baixo auto nas laterais (centraliza)*/
+    padding: 2rem; /*espaçamento interno de 32px em todos os lados*/
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 20px; /*borda arredondada*/
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /*sombra um pouco mais pronunciada*/
+    backdrop-filter: blur(10px); /*efeito de desfoque no fundo*/
+    animation: slideIn 0.5s ease-out; /*animação de entrada*/
+    align-self: start; /*alinha o main ao início do container flexível*/
+    justify-self: auto; /*alinha o main de acordo com o fluxo normal do documento*/
+    justify-items: auto; /*alinha os itens dentro do main de acordo com o fluxo normal do documento*/
+    align-items: horizontal; /*alinha os itens dentro do main horizontalmente*/
+    align-content: horizontal; /*alinha o conteúdo dentro do main horizontalmente*/
+    align-self: horizontal; /*alinha o main horizontalmente dentro do container flexível*/
+    alignment-baseline: horizontal; /*alinha o texto dentro do main horizontalmente*/
+    flex-direction: row;
+    
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column; /*alinha os itens em coluna*/
+    align-items: center; /*alinha os itens ao centro horizontalmente*/
+    text-align: center; /*alinha o texto ao centro*/
+    padding: 20px; /*espaçamento interno de 20px*/
+    border-radius: 10px; /*borda arredondada para os cards*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /*sombra suave para os cards*/
+    height: 650px;
+    width: 400px; 
+    max-width: 360px; /*largura maxima em pixels*/
+    max-height: 800px; /*altura fixa em pixels*/  
+    background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 20px; /*borda arredondada*/  
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /*sombra um pouco mais pronunciada*/
+      backdrop-filter: blur(10px); /*efeito de desfoque no fundo*/
+      animation: slideIn 0.5s ease-out; /*animação de entrada*/
+        margin: 7rem 0; /*7rem cima/baixo auto nas laterais (centraliza)*/
+        padding: 2rem; /*espaçamento interno de 32px em todos os lados*/
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 20px; /*borda arredondada*/
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /*sombra um pouco mais pronunciada*/
+        backdrop-filter: blur(10px); /*efeito de desfoque no fundo*/
+        animation: slideIn 0.5s ease-out; /*animação de entrada*/
+        align-self: start; /*alinha o main ao início do container flexível*/
+        justify-self: auto; /*alinha o main de acordo com o fluxo normal do documento*/
+        justify-items: auto; /*alinha os itens dentro do main de acordo com o fluxo normal do documento*/
+        align-items: horizontal; /*alinha os itens dentro do main horizontalmente*/
+        align-content: horizontal; /*alinha o conteúdo dentro do main horizontalmente*/
+        align-self: horizontal; /*alinha o main horizontalmente dentro do container flexível*/
+  }
+  .card img {
+    border-radius: 15px; /*borda arredondada para as imagens*/
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /*sombra suave para as imagens*/
+    transition: transform 0.3s ease; /*transição suave para a transformação*/
+    max-width: 80%; /*garante que a imagem não ultrapasse a largura do container*/
+    height: auto; /*ajusta a altura automaticamente para manter a proporção*/
+  margin-bottom: 15px; /*centraliza a imagem horizontalmente*/
+
+  }
+   .card img:hover {     
+    transform: scale(1.05); /*aumenta 5% do tamanho original ao passar o mouse*/
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /*sombra mais pronunciada ao passar o mouse*/
+   }
+ 
+  button {
+    background-color:black; /*cor de fundo do botão roxo*/
+    color: white; /*cor do texto branco*/
+    border: none; /*remove borda padrão*/
+    padding: 10px 20px; /*espaçamento interno do botão*/
+    border-radius: 25px; /*bordas arredondadas*/
+    cursor: pointer; /*muda o cursor para indicar que é clicável*/
+    transition: background-color 0.3s ease, transform 0.3s ease; /*transição suave para cor e transformação*/
+    height: 2.5rem;
+    
+    
+  
+  }
+  
+ .btn {
+  font-size: 1.2rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: rgb(14, 14, 26);
+  color: rgb(234, 234, 234);
+  font-weight: 700;
+  transition: 0.6s;
+  box-shadow: 0px 0px 60px #1f4c65;
+  -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+}
+
+.btn:active {
+  scale: 0.92;
+}
+
+.btn:hover {
+  background: rgb(2,29,78);
+  background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%,#280050 60%);
+  color: rgb(4, 4, 38);
+}
+  
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-decoration: wavy;
+    
+  
+    text-align: center;
+    background-color: #3c0064;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .insta {
+    text-decoration: none;
+    color: white;
+  }
